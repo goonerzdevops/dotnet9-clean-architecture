@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Dotnet9CleanArchitecture.Application.Products.Commands.CreateProduct;
 using Dotnet9CleanArchitecture.Application.Products.Commands.DeleteProduct;
@@ -11,6 +12,7 @@ namespace Dotnet9CleanArchitecture.Api.Controllers.v1;
 [ApiController]
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/[controller]")]
+[Authorize]
 public class ProductsController : ControllerBase
 {
     private readonly ISender _mediator;
